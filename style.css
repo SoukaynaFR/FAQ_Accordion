@@ -23,13 +23,11 @@ body {
   .container {
     background-color: hsl(0, 0%, 100%);
     width: 440px;
-    /* Remove fixed height */
-    /* height: 400px; */
     text-align: start;
     padding: 20px;
     margin-top: 40px; 
     border-radius: 10px;
-    min-height: 400px; /* Set a min-height */
+    min-height: 400px; 
   
   }
   
