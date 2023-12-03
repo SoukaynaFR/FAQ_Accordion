@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/faq.svg"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>FAQ accordion</title>
+
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="container" id="faqContainer">
+        <h1><img src="./assets/images/icon-star.svg" alt="" /> FAQs</h1>
+
+        <div class="faq_section">
+          <div class="question" onclick="toggleAnswer(this)">
+            What is Frontend Mentor, and how will it help me?
+            <img class="plus-icon" src="./assets/images/icon-plus.svg" alt="" />
+            <img
+              class="minus-icon"
+              src="./assets/images/icon-minus.svg"
+              alt=""
+            />
+          </div>
+          <div class="answer">
+            Frontend Mentor offers realistic coding challenges to help
+            developers improve their frontend coding skills with projects in
+            HTML, CSS, and JavaScript. It's suitable for all levels and ideal
+            for portfolio building.
+          </div>
+<hr>
+          <div class="question" onclick="toggleAnswer(this)">
+            Is Frontend Mentor free?
+            <img class="plus-icon" src="./assets/images/icon-plus.svg" alt="" />
+            <img
+              class="minus-icon"
+              src="./assets/images/icon-minus.svg"
+              alt=""
+            />
+          </div>
+          <div class="answer">
+            Yes, Frontend Mentor offers both free and premium coding challenges,
+            with the free option providing access to a range of projects
+            suitable for all skill levels.
+          </div>
+          <hr>
+
+          <div class="question" onclick="toggleAnswer(this)">
+            Can I use Frontend Mentor projects in my portfolio?
+            <img class="plus-icon" src="./assets/images/icon-plus.svg" alt="" />
+            <img
+              class="minus-icon"
+              src="./assets/images/icon-minus.svg"
+              alt=""
+            />
+          </div>
+          <div class="answer">
+            Yes, you can use projects completed on Frontend Mentor in your
+            portfolio. It's an excellent way to showcase your skills to
+            potential employers!
+          </div>
+<hr>
+          <div class="question" onclick="toggleAnswer(this)">
+            How can I get help if I'm stuck on a Frontend Mentor challenge?
+            <img class="plus-icon" src="./assets/images/icon-plus.svg" alt="" />
+            <img
+              class="minus-icon"
+              src="./assets/images/icon-minus.svg"
+              alt=""
+            />
+          </div>
+          <div class="answer">
+            The best place to get help is inside Frontend Mentor's Discord
+            community. There's a help channel where you can ask questions and
+            seek support from other community members.
+          </div>
+        </div>
+      </div>
+
+      <script>
+        function toggleAnswer(question) {
+          question.classList.toggle('active');
+          var answer = question.nextElementSibling;
+          answer.style.display = (answer.style.display === 'none' || answer.style.display === '') ? 'block' : 'none';
+          var plusIcon = question.querySelector('.plus-icon');
+          var minusIcon = question.querySelector('.minus-icon');
+          plusIcon.style.display = (answer.style.display === 'none' || answer.style.display === '') ? 'inline' : 'none';
+          minusIcon.style.display = (answer.style.display === 'none' || answer.style.display === '') ? 'none' : 'inline';
+          updateContainerHeight();
+        }
+        function updateContainerHeight() {
+          var container = document.getElementById('faqContainer');
+          var faqSection = document.querySelector('.faq_section');
+          var questionAnswerPairs = document.querySelectorAll('.question, .answer');
+          var totalHeight = 80;
+          questionAnswerPairs.forEach(function (element) {
+            var rect = element.getBoundingClientRect();
+            totalHeight += rect.height + parseInt(getComputedStyle(element).marginTop) + parseInt(getComputedStyle(element).marginBottom);
+          });
+          container.style.height = totalHeight + 'px';
+        }
+        // Call updateContainerHeight initially
+        window.onload = function () {
+          updateContainerHeight();
+        };
+      </script>
+<!-- 
+      <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://linktr.ee/SoukaynaFR">Soukayna El Ferchouni</a>. -->
+    </div>
+  </body>
+</html>
